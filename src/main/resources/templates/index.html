@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #222;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .container{
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a Luis Books</h1>
+        <p>
+            Proyecto SpringBoot 3.5.14
+            con Java 21 y Thymeleaf.
+        </p>
+        <p th:if="${#authorization.expression('isAuthenticated()')}">
+            Inicio de sesión correcto.
+        </p>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    </div>
+</body>
+</html>
