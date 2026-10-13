@@ -48,6 +48,8 @@ public class DevSecurityConfig {
                         // DELETE requiere autenticacion
                         .requestMatchers(HttpMethod.DELETE, "/v1/books/{id}").authenticated()
                         .requestMatchers(HttpMethod.DELETE, "/v1/categories/{id}").authenticated()
+                        // API de Pokemon: consultas publicas
+                        .requestMatchers(HttpMethod.GET, "/v1/pokemon","/v1/pokemon/**").permitAll()
                         // Proteger otros endpoints
                         .anyRequest().authenticated()
                 )
